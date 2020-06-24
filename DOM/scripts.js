@@ -7,10 +7,28 @@ var Text1 = document.createTextNode('This is an h1');
 Head1.appendChild(Text1);
 div1.appendChild(Head1);
 
+var item = 1;
 
 window.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(div1); // add the header to the document body
-});
+    document.getElementById("myBtn").addEventListener("click", function(){
+        
+        var node = document.createElement("LI");
+        var textnode = document.createTextNode("This is the item "+ item);
+        node.appendChild(textnode);
+        document.getElementById("demo").appendChild(node);
+        item++;
+
+    document.getElementById("demo").addEventListener("click", myFunction1);
+
+        function myFunction1() {
+            
+            var list = ['blue','red','yellow','black','brown','green','orange','purple'];
+            var colorcontainer = list[Math.floor(Math.random() * 10)];
+            Head1.style.color = colorcontainer;
+        }
+      });
+ });
 
 
 var Head2 = document.createElement('h2');
@@ -45,12 +63,11 @@ div1.appendChild(Head6);
 
 
 
-Head1.addEventListener("click", myFunction);
+Head1.addEventListener("click", myFunction1);
 
-function myFunction() {
+function myFunction1() {
     
     var list = ['blue','red','yellow','black','brown','green','orange','purple'];
     var colorcontainer = list[Math.floor(Math.random() * 10)];
     Head1.style.color = colorcontainer;
 }
-
